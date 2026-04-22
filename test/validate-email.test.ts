@@ -233,3 +233,13 @@ test("gmail mailbox sample is treated as valid", async () => {
   const result = await checkEmail("nischaldahal01395@gmail.com");
   expect(result.valid).toBe(true);
 });
+
+test("gmail mailbox sample is treated as invalid", async () => {
+  const result = await checkEmail(
+    "nischaasdfasdfasdfasdfasdfasdfasdfldadfdffdshal01395@gmail.com",
+    {
+      smtpProbe: true,
+    },
+  );
+  expect(result.valid).toBe(false);
+});
